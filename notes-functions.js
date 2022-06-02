@@ -1,10 +1,16 @@
 
+
+
+
+
+
+
 // render saved notes
-console.log(uuidv4())
+
 
 function getSavedNotes() {
 
-const notesJSON = localStorage.getItem('notes')
+  const notesJSON = localStorage.getItem('notes')
 
 
 if (notesJSON !== null) {
@@ -16,6 +22,18 @@ else {
 }
 
 }
+ // delete Note
+ const removeNote = function (id) {
+  const noteIndex = notes.findIndex(function (note) {
+      return note.id === id
+  })
+
+  if (noteIndex > -1) {
+      notes.splice(noteIndex, 1)
+  }
+}
+
+
 
 // render note title
 function generateNoteDOM(note) {
@@ -27,6 +45,12 @@ const textElement = document.createElement('span')
 const button = document.createElement("button")
 button.textContent = "x"
 NoteElement.appendChild(button)
+button.addEventListener("click", function () {
+  removeNote(note.id)
+  getSavedNotes(notes)
+  renderNotes(notes, filters)
+})
+
 // set up note title text
 if (note.title > 0) {
   textElement.textContent = note.Title
