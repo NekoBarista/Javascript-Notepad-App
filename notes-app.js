@@ -9,17 +9,15 @@ const filters = {
 renderNotes(notes, filters)
 
 
-function handleCreateClick(event) {
-  
+function handleCreateClick() {
+  const id =  uuidv4()
  notes.push({
-   id: uuidv4(), 
+   id: id, 
    Title: "",
  Body:"",
 })
-
-localStorage.setItem('notes', JSON.stringify(notes))
-renderNotes(notes,filters)
-
+saveNote(notes)
+location.assign(`/editnote.html#${id}`)
 }
 
 document.querySelector("#create-note").addEventListener('click', handleCreateClick)

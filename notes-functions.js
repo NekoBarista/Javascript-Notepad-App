@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 // render saved notes
 
 
@@ -34,12 +27,18 @@ else {
 }
 
 
+//save Note
+
+function saveNote () {
+  localStorage.setItem('notes', JSON.stringify(notes))
+}
 
 // render note title
 function generateNoteDOM(note) {
   
 const NoteElement = document.createElement('div')
-const textElement = document.createElement('span')
+const textElement = document.createElement('a')
+textElement.setAttribute('href', `./editnote.html#${note.id}`)
 
 // set up delete button
 const button = document.createElement("button")
