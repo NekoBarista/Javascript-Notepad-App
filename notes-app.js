@@ -10,11 +10,14 @@ renderNotes(notes, filters)
 
 
 function handleCreateClick() {
+  const timestamp = dayjs().valueOf()
   const id =  uuidv4()
  notes.push({
    id: id, 
    Title: "",
  Body:"",
+ Created: timestamp,
+ Updated: timestamp,
 })
 saveNote(notes)
 location.assign(`/editnote.html#${id}`)

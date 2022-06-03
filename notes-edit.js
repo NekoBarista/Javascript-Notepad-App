@@ -1,6 +1,7 @@
 const noteTitle = document.querySelector("#note-title")
 const noteBody = document.querySelector('#note-body')
 const deleteButton = document.querySelector('#delete-button')
+const date = document.querySelector("#last-updated")
 
 const noteId = location.hash.substring(1)
 let notes = getSavedNotes()
@@ -12,11 +13,13 @@ return note.id === noteId
 if (note === undefined) {
  location.assign('/index.html')   
 }
+
 noteTitle.value = note.Title
 noteBody.value = note.Body
 
 noteBody.addEventListener('input', function handleBodyChange(e){
 note.Body = e.target.value
+note.Updated = dayjs().valueOf()
 saveNote(notes)
 }
 )
@@ -24,6 +27,7 @@ saveNote(notes)
 
 noteTitle.addEventListener('input', function handleTitleChange(e) {
     note.Title = e.target.value
+    note.Updated = dayjs().valueOf()
     saveNote(notes)
 })
 
