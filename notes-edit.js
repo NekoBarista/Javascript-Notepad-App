@@ -19,8 +19,11 @@ noteBody.value = note.Body
 date.textContent = lastUpdated (note)
 
 
+
 noteBody.addEventListener('input', function handleBodyChange(e){
-    let updateDate = new Date()
+    let today = new Date()
+    let updateDate = Date.parse(today)
+
 note.Body = e.target.value
 note.Updated = updateDate
 date.textContent = lastUpdated (note)
@@ -30,11 +33,11 @@ saveNote(notes)
 
 
 noteTitle.addEventListener('input', function handleTitleChange(e) {
-    let updateDate = new Date()
+    let today = new Date()
+    let updateDate = Date.parse(today)
     note.Title = e.target.value
     note.Updated = updateDate
     date.textContent = lastUpdated (note)
-    setEditDate(note)
     saveNote(notes)
 })
 

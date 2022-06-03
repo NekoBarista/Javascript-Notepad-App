@@ -1,11 +1,8 @@
 function lastUpdated (note) {
-    console.log(note)
-    let updatedDate = Date.parse(note.Updated)*1000
+    let updatedDate = note.Updated*1000
     let currentDate = new Date()*1000
     let timedifference = (currentDate/1000) - (updatedDate/1000)
-    console.log(updatedDate)
-    console.log(timedifference)
-    console.log(currentDate)
+
     if(timedifference >= 0 && timedifference <= 29000) {
         return `Last Updated a few seconds ago`
 }

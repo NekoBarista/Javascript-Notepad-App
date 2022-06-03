@@ -2,22 +2,25 @@ let notes = getSavedNotes()
 
 
 const filters = {
-  searchText: ''
+  searchText: '',
+  sortBy: 'byEdited'
 }
 
 
 renderNotes(notes, filters)
 
 
+
 function handleCreateClick() {
-  const timestamp = new Date()
+let today = new Date()
+  let timestamp = Date.parse(today)
   const id =  uuidv4()
  notes.push({
    id: id, 
    Title: "",
  Body:"",
  Created: timestamp,
- Updated: timestamp,
+ Updated:timestamp,
 })
 saveNote(notes)
 location.assign(`/editnote.html#${id}`)
@@ -34,19 +37,13 @@ function searchNotes(event) {
 
 function handleSubmit(event) {
 event.preventDefault()
-console.log(event.target.elements.firstName.value)
-event.target.elements.firstName.value = ""
 
 }
 
-
-function handleCheck(event) {
-  console.log(event.target.checked)
-
-}
 
 function sortBy(event) {
-  console.log(event.target.value)
+  filters.sortBy = event.target.value
+  renderNotes(notes,filters)
 }
 
 document.querySelector("#search-text").addEventListener("input",searchNotes)

@@ -65,21 +65,57 @@ NoteElement.appendChild(textElement)
 return NoteElement
 }
 
+// sort notes by dropdown options
+const sortNotes = function (notes, sortBy) {
+  console.log(sortBy)
+  if (sortBy === 'byEdited') {
+      return notes.sort(function (a, b) {
+          if (a.Updated > b.Updated) {
+              return -1
+          } else if (a.Updated < b.Updated) {
+              return 1
+          } else {
+              return 0
+          }
+      })
+  } else if (sortBy === 'newest') {
+      return notes.sort(function (a, b) {
+          if (a.Created > b.Created) {
+              return -1
+          } else if (a.Created < b.Created) {
+              return 1
+          } else {
+              return 0
+          }
+      })
+  } else if (sortBy === 'alphabetical') {
+      return notes.sort(function (a, b) {
+          if (a.Title < b.Title) {
+              return -1
+          } else if (a.Title > b.Title) {
+              return 1
+          } else {
+              return 0
+          }
+      })
+  } else {
+      return notes
+  }
+}
+
 
 //render application notes
 
 function renderNotes (notes, filters) {
+  notes = sortNotes(notes, filters.sortBy)
     let filteredNotes = notes.filter(function(note) {
       return note.Title.toLowerCase().includes(filters.searchText.toLowerCase())
     
     })
-    
+
     document.querySelector("#notes").innerHTML=" "
-    
     filteredNotes.forEach(function (note) {
-      const NoteElement = generateNoteDOM(note)
-      updatedAt =  lastUpdated (note)
- 
+      let NoteElement = generateNoteDOM(note)
       document.querySelector("#notes").appendChild(NoteElement)
       
     
