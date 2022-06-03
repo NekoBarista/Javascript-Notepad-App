@@ -16,33 +16,14 @@ if (note === undefined) {
 
 noteTitle.value = note.Title
 noteBody.value = note.Body
-date.textContent = setEditDate(note)
+date.textContent = lastUpdated (note)
 
-function setEditDate(note) {
-   let updateDate = new Date (note.Updated)
-   let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
-   let month = months[updateDate.getMonth()];
-   let hours = updateDate.getHours();
-   if (hours < 10) {
-     hours = `0${hours}`;
-   }
-   
-   let minutes = updateDate.getMinutes();
-   if (minutes < 10) {
-     minutes = `0${minutes}`;
-   }
-   console.log(updateDate)
-   return `Last updated: ${updateDate.getDay()}th of ${month}, ${updateDate.getFullYear()} at  ${hours}:${updateDate.getMinutes()}`
- 
-
-
-}
 
 noteBody.addEventListener('input', function handleBodyChange(e){
     let updateDate = new Date()
 note.Body = e.target.value
 note.Updated = updateDate
-setEditDate(note)
+date.textContent = lastUpdated (note)
 saveNote(notes)
 }
 )
@@ -52,6 +33,7 @@ noteTitle.addEventListener('input', function handleTitleChange(e) {
     let updateDate = new Date()
     note.Title = e.target.value
     note.Updated = updateDate
+    date.textContent = lastUpdated (note)
     setEditDate(note)
     saveNote(notes)
 })
@@ -75,5 +57,6 @@ window.addEventListener('storage', function (e) {
 
         noteTitle.value = note.title
         noteBody.value = note.body
+        date.textContent = lastUpdated (note)
     }
 })

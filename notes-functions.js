@@ -78,7 +78,10 @@ function renderNotes (notes, filters) {
     
     filteredNotes.forEach(function (note) {
       const NoteElement = generateNoteDOM(note)
+      updatedAt =  lastUpdated (note)
+ 
       document.querySelector("#notes").appendChild(NoteElement)
+      
     
     })
     }
