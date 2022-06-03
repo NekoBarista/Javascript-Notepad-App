@@ -17,28 +17,64 @@ function lastUpdated (note) {
     }
 }
 else if(timedifference >= 60001 && timedifference <= 3600000) {
-    return `Last Updated ${minutes} minutes ago`
+    if (minutes = 1) {
+        return `Last Updated ${minutes} minute ago`
+        }
+    
+        else {
+            return `Last Updated ${minutes} minutes ago`
+            }
 }
 
 else if(timedifference >= 3600001 && timedifference <= 86400000) {
-    return `Last Updated ${hours} hours ago`
+if (hours = 1) {
+        return `Last Updated ${hours} hour ago`
+        }
+    
+        else {
+            return `Last Updated ${hours} hours ago`
+            }
 }
 
 else if(timedifference >= 86400001 && timedifference <= 604800000) {
-    return `Last Updated ${days} ago`
+    if (days = 1) {
+        return `Last Updated ${days} day ago`
+        }
+    
+        else {
+            return `Last Updated ${days} days ago`
+            }
 }
 
 else if(timedifference >= 604800000 && timedifference <= 2419200000) {
-    return `Last Updated ${weeks} weeks ago`
+    if (weeks = 1) {
+        return `Last Updated ${weeks} week ago`
+        }
+    
+        else {
+            return `Last Updated ${weeks} weeks ago`
+            }
 }
 
 else if(timedifference >= 2419200001 && timedifference <= 29030400000) {
-    return `Last Updated ${months} months ago`
+    if (months = 1) {
+        return `Last Updated ${months} month ago`
+        }
+    
+        else {
+            return `Last Updated ${months} months ago`
+            }
 }
 
 
 else if(timedifference >= 29030400001) {
-    return `Last Updated ${years} years ago`
+    if (years = 1) {
+        return `Last Updated ${years} year ago`
+        }
+    
+        else {
+            return `Last Updated ${years} years ago`
+            }
 }
 
 
