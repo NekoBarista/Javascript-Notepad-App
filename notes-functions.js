@@ -16,8 +16,8 @@ else {
 
 }
  // delete Note
- const removeNote = function (id) {
-  const noteIndex = notes.findIndex(function (note) {
+ let removeNote = function (id) {
+  let noteIndex = notes.findIndex(function (note) {
       return note.id === id
   })
 
@@ -29,7 +29,7 @@ else {
 
 //save Note
 
-function saveNote () {
+function saveNote (notes) {
   localStorage.setItem('notes', JSON.stringify(notes))
 }
 
@@ -47,11 +47,12 @@ NoteElement.appendChild(button)
 button.addEventListener("click", function () {
   removeNote(note.id)
   getSavedNotes(notes)
+  saveNote (notes)
   renderNotes(notes, filters)
 })
 
 // set up note title text
-if (note.title > 0) {
+if (note.Title.length > 0) {
   textElement.textContent = note.Title
 
 }
