@@ -68,11 +68,3 @@ window.addEventListener('storage', function (e) {
 })
 
 
-const now = new Date ('January 21 1998 6:26:01' )
-console.log(now.toString())
-console.log(`Year:${now.getFullYear()}`)
-console.log(`Month: ${now.getMonth()}`)
-console.log(`Date: ${now.getDate()}`)
-console.log(`Hour:${now.getHours()}`)
-console.log(`Minute:${now.getMinutes()}`)
-console.log(`Seconds:${now.getSeconds()}`)
