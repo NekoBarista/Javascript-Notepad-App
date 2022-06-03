@@ -10,7 +10,7 @@ renderNotes(notes, filters)
 
 
 function handleCreateClick() {
-  const timestamp = dayjs().valueOf()
+  const timestamp = new Date()
   const id =  uuidv4()
  notes.push({
    id: id, 
