@@ -43,7 +43,7 @@ textElement.setAttribute('href', `./editnote.html#${note.id}`)
 const button = document.createElement("button")
 button.textContent = "x"
 NoteElement.appendChild(button)
-button.addEventListener("click", function () {
+button.addEventListener("click",  () => {
   removeNote(note.id)
   getSavedNotes(notes)
   saveNote (notes)
