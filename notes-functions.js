@@ -1,12 +1,17 @@
-// render saved notes
+'use strict'
 
+// render saved notes
 
 const getSavedNotes = () => {
 
-  const notesJSON = localStorage.getItem('notes')
+const notesJSON = localStorage.getItem('notes')
+try {
+  return notesJSON ? JSON.parse(notesJSON): []
+}
+catch (e) {
+  return []
+}
 
-
-return notesJSON ? JSON.parse(notesJSON): []
 }
 
 
