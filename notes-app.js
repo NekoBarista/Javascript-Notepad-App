@@ -11,7 +11,7 @@ renderNotes(notes, filters)
 
 
 
-function handleCreateClick() {
+const handleCreateClick =() => {
 let today = new Date()
   let timestamp = Date.parse(today)
   const id =  uuidv4()
@@ -30,18 +30,18 @@ document.querySelector("#create-note").addEventListener('click', handleCreateCli
 
 
 
-function searchNotes(event) {
+const searchNotes = (event) => {
   filters.searchText = event.target.value
   renderNotes(notes, filters)
 }
 
-function handleSubmit(event) {
+const handleSubmit =(event) => {
 event.preventDefault()
 
 }
 
 
-function sortBy(event) {
+const sortBy = (event) => {
   filters.sortBy = event.target.value
   renderNotes(notes,filters)
 }
@@ -51,7 +51,7 @@ document.querySelector('#sort').addEventListener("change", sortBy)
 
 
 
-window.addEventListener('storage', function (e) {
+window.addEventListener('storage', (e) => {
   if (e.key === 'notes') {
       notes = JSON.parse(e.newValue)
       note = notes.find(function (note) {

@@ -1,7 +1,7 @@
 // render saved notes
 
 
-function getSavedNotes() {
+const getSavedNotes = () => {
 
   const notesJSON = localStorage.getItem('notes')
 
@@ -16,10 +16,9 @@ else {
 
 }
  // delete Note
- let removeNote = function (id) {
-  let noteIndex = notes.findIndex(function (note) {
-      return note.id === id
-  })
+const removeNote = (id) => {
+  let noteIndex = notes.findIndex((note) => note.id === id
+  )
 
   if (noteIndex > -1) {
       notes.splice(noteIndex, 1)
@@ -29,12 +28,12 @@ else {
 
 //save Note
 
-function saveNote (notes) {
+const saveNote =  (notes) => {
   localStorage.setItem('notes', JSON.stringify(notes))
 }
 
 // render note title
-function generateNoteDOM(note) {
+const generateNoteDOM = (note) => {
   
 const NoteElement = document.createElement('div')
 const textElement = document.createElement('a')
@@ -66,10 +65,10 @@ return NoteElement
 }
 
 // sort notes by dropdown options
-const sortNotes = function (notes, sortBy) {
+const sortNotes =(notes, sortBy) => {
   console.log(sortBy)
   if (sortBy === 'byEdited') {
-      return notes.sort(function (a, b) {
+      return notes.sort((a, b) => {
           if (a.Updated > b.Updated) {
               return -1
           } else if (a.Updated < b.Updated) {
@@ -79,7 +78,7 @@ const sortNotes = function (notes, sortBy) {
           }
       })
   } else if (sortBy === 'newest') {
-      return notes.sort(function (a, b) {
+      return notes.sort((a, b) => {
           if (a.Created > b.Created) {
               return -1
           } else if (a.Created < b.Created) {
@@ -89,7 +88,7 @@ const sortNotes = function (notes, sortBy) {
           }
       })
   } else if (sortBy === 'alphabetical') {
-      return notes.sort(function (a, b) {
+      return notes.sort((a, b) => {
           if (a.Title < b.Title) {
               return -1
           } else if (a.Title > b.Title) {
@@ -106,15 +105,13 @@ const sortNotes = function (notes, sortBy) {
 
 //render application notes
 
-function renderNotes (notes, filters) {
+const renderNotes = (notes, filters) => {
   notes = sortNotes(notes, filters.sortBy)
-    let filteredNotes = notes.filter(function(note) {
-      return note.Title.toLowerCase().includes(filters.searchText.toLowerCase())
-    
-    })
+    let filteredNotes = notes.filter((note) => note.Title.toLowerCase().includes(filters.searchText.toLowerCase())
+    )
 
     document.querySelector("#notes").innerHTML=" "
-    filteredNotes.forEach(function (note) {
+    filteredNotes.forEach((note) => {
       let NoteElement = generateNoteDOM(note)
       document.querySelector("#notes").appendChild(NoteElement)
       

@@ -5,10 +5,9 @@ const date = document.querySelector("#last-updated")
 
 const noteId = location.hash.substring(1)
 let notes = getSavedNotes()
-let note = notes.find(function(note){
-return note.id === noteId
+let note = notes.find((note) => note.id === noteId
 
-})
+)
 
 if (note === undefined) {
  location.assign('/index.html')   
@@ -20,7 +19,7 @@ date.textContent = lastUpdated (note)
 
 
 
-noteBody.addEventListener('input', function handleBodyChange(e){
+noteBody.addEventListener('input', handleBodyChange = (e) =>{
     let today = new Date()
     let updateDate = Date.parse(today)
 
@@ -32,7 +31,7 @@ saveNote(notes)
 )
 
 
-noteTitle.addEventListener('input', function handleTitleChange(e) {
+noteTitle.addEventListener('input', handleTitleChange = (e) =>{
     let today = new Date()
     let updateDate = Date.parse(today)
     note.Title = e.target.value
@@ -42,17 +41,17 @@ noteTitle.addEventListener('input', function handleTitleChange(e) {
 })
 
 
-deleteButton.addEventListener('click', function deleteNote(e) {
+deleteButton.addEventListener('click', deleteNote = (e) => {
     removeNote(note.id) 
     saveNote(notes)
     location.assign('./index.html')})
 
-window.addEventListener('storage', function (e) {
+window.addEventListener('storage', (e) =>{
     if (e.key === 'notes') {
         notes = JSON.parse(e.newValue)
-        note = notes.find(function (note) {
-            return note.id === noteId
-        })
+        note = notes.find((note) =>
+            note.id === noteId
+        )
 
         if (note === undefined) {
             location.assign('/index.html')
