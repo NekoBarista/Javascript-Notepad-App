@@ -6,17 +6,19 @@
 
 html {
   font-size: 62.5%;
+  background: url("japangifD.webp") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
   color: #333333;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
-  background-image: url("japangifD.webp");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 150rem;
+
 }
+
 
 button {
   cursor: pointer;
