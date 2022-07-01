@@ -153,12 +153,12 @@ a {
     background: #eeeeee;
 }
 
-.list-item__title {
+.list-item-title {
     font-size: 1.8rem;
     margin-bottom: .4rem
 }
 
-.list-item__subtitle {
+.list-item-subtitle {
     color: #666;
     font-size: 1.4rem;
     font-weight: 300;

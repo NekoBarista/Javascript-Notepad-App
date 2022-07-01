@@ -31,20 +31,16 @@ const saveNote =  (notes) => {
 
 const generateNoteDOM = (note) => {
   
-const NoteElement = document.createElement('div')
-const textElement = document.createElement('a')
-textElement.setAttribute('href', `./editnote.html#${note.id}`)
+const NoteElement = document.createElement('a')
+const textElement = document.createElement('p')
+const statusElement = document.createElement('p')
 
-// set up delete button
-const button = document.createElement("button")
-button.textContent = "x"
-NoteElement.appendChild(button)
-button.addEventListener("click",  () => {
-  removeNote(note.id)
-  getSavedNotes(notes)
-  saveNote (notes)
-  renderNotes(notes, filters)
-})
+
+NoteElement.classList.add("list-item")
+textElement.classList.add("list-item-title")
+statusElement.classList.add("list-item-subtitle")
+
+statusElement.textContent = lastUpdated(note)
 
 if (note.Title.length > 0) {
   textElement.textContent = note.Title
@@ -55,6 +51,9 @@ else {
   textElement.textContent = "Untitled Note"
 }
 NoteElement.appendChild(textElement)
+NoteElement.appendChild(statusElement)
+NoteElement.setAttribute('href', `./editnote.html#${note.id}`)
+
 
 return NoteElement
 }
