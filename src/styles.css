@@ -12,6 +12,10 @@ body {
   color: #333333;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
+  background-image: url("japangifD.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 button {
@@ -32,7 +36,7 @@ a {
 /* Header */
 
 .header {
-  background: #43799c;
+   background-color:rgb(67,121,156,.7);
   color: white;
   padding: 1.6rem 0;
 }
