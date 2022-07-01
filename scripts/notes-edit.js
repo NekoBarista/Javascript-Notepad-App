@@ -21,7 +21,7 @@ date.textContent = lastUpdated (note)
 
 
 
-noteBody.addEventListener('input', handleBodyChange = (e) =>{
+noteBody.addEventListener('input', (e) =>{
     let today = new Date()
     let updateDate = Date.parse(today)
 
@@ -33,7 +33,7 @@ saveNote(notes)
 )
 
 
-noteTitle.addEventListener('input', handleTitleChange = (e) =>{
+noteTitle.addEventListener('input', (e) =>{
     let today = new Date()
     let updateDate = Date.parse(today)
     note.Title = e.target.value
@@ -43,7 +43,7 @@ noteTitle.addEventListener('input', handleTitleChange = (e) =>{
 })
 
 
-deleteButton.addEventListener('click', deleteNote = (e) => {
+deleteButton.addEventListener('click', (e) => {
     removeNote(note.id) 
     saveNote(notes)
     location.assign('./index.html')})

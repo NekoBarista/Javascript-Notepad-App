@@ -5,16 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Note</title>
+    <link rel="stylesheet" href="/src/styles.css" class="stylesheet">
 </head>
 <body>
+  <header class="header">
+    <div class="container">
+<h1 class="header-title">Notes App</h1>
+<h2 class="header-subtitle">Never forget with your notes</h2>
+</div></header>
+
+<div class="actions">
+    <div class="actions-container actions-container-spaced">
   <a href="./index.html"> Home </a>
-  <input id="note-title" placeholder="Enter Note Title">
-  <span id="last-updated"></span>
-  <textarea id="note-body" placeholder="Enter your note"></textarea>
-  <button id="delete-button">Remove Note</button>
+  <span id="last-updated"></span></div>
+</div>
+ <div class="container">
+  <input id="note-title" placeholder="Enter Note Title" class="title-input">
+  <textarea id="note-body" placeholder="Enter your note" class="body-input"></textarea>
+  <button id="delete-button" class="button button--secondary">Remove Note</button>
+</div>
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-  <script src="./lastUpdated.js"></script>   
-  <script src="./notes-functions.js"></script>
-    <script src="./notes-edit.js"></script>
+  <script src="/scripts/lastUpdated.js"></script>   
+  <script src="/scripts/notes-functions.js"></script>
+    <script src="/scripts/notes-edit.js"></script>
 </body>
 </html>

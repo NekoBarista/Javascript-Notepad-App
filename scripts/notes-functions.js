@@ -1,6 +1,5 @@
 'use strict'
 
-// render saved notes
 
 const getSavedNotes = () => {
 
@@ -15,7 +14,6 @@ catch (e) {
 }
 
 
- // delete Note
 const removeNote = (id) => {
   let noteIndex = notes.findIndex((note) => note.id === id
   )
@@ -26,13 +24,11 @@ const removeNote = (id) => {
 }
 
 
-//save Note
 
 const saveNote =  (notes) => {
   localStorage.setItem('notes', JSON.stringify(notes))
 }
 
-// render note title
 const generateNoteDOM = (note) => {
   
 const NoteElement = document.createElement('div')
@@ -50,7 +46,6 @@ button.addEventListener("click",  () => {
   renderNotes(notes, filters)
 })
 
-// set up note title text
 if (note.Title.length > 0) {
   textElement.textContent = note.Title
 
@@ -64,7 +59,6 @@ NoteElement.appendChild(textElement)
 return NoteElement
 }
 
-// sort notes by dropdown options
 const sortNotes =(notes, sortBy) => {
   console.log(sortBy)
   if (sortBy === 'byEdited') {
@@ -103,18 +97,26 @@ const sortNotes =(notes, sortBy) => {
 }
 
 
-//render application notes
 
 const renderNotes = (notes, filters) => {
-  notes = sortNotes(notes, filters.sortBy)
+notes = sortNotes(notes, filters.sortBy)
     let filteredNotes = notes.filter((note) => note.Title.toLowerCase().includes(filters.searchText.toLowerCase())
     )
 
     document.querySelector("#notes").innerHTML=" "
-    filteredNotes.forEach((note) => {
+
+    if(filteredNotes.length > 0) {    filteredNotes.forEach((note) => {
       let NoteElement = generateNoteDOM(note)
       document.querySelector("#notes").appendChild(NoteElement)
       
     
-    })
+    })}
+
+    else {const emptyMessage = document.createElement('p')
+    emptyMessage.textContent = "You have no notes - create one to get started!"
+    document.querySelector("#notes").appendChild(emptyMessage)
+    emptyMessage.classList.add("empty-message")
+  
+  }
+
     }
