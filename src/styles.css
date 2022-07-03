@@ -10,12 +10,17 @@ html {
   background-size: cover;
   height: 100%;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
+
 
 body {
   color: #333333;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
 
 }
 
@@ -44,13 +49,14 @@ margin-top: 10rem;
 .header {
    background-color:rgb(67,121,156,.7);
   color: white;
-  padding: 1.6rem 0;
-  width: 100%
+  margin: 0;
+  padding: 0;
 }
 
 .header-title {
   font-size: 3.2rem;
   margin-bottom: .4rem;
+
 }
 
 .header-subtitle {
