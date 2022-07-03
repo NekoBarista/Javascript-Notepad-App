@@ -11,7 +11,7 @@ let notes = getSavedNotes()
 let note = notes.find((note) => note.id === noteId)
 
 if (!note) {
- location.assign('/index.html')   
+ location.assign('./index.html')   
 }
 
 noteTitle.value = note.Title
@@ -20,7 +20,7 @@ date.textContent = lastUpdated (note)
 
 saveButton.addEventListener('click',(e) => {
 e.preventDefault()
-location.assign("./index/html")
+location.assign("./index.html")
 
 })
 
