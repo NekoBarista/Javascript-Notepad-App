@@ -7,9 +7,7 @@ const date = document.querySelector("#last-updated")
 
 const noteId = location.hash.substring(1)
 let notes = getSavedNotes()
-let note = notes.find((note) => note.id === noteId
-
-)
+let note = notes.find((note) => note.id === noteId)
 
 if (!note) {
  location.assign('/index.html')   

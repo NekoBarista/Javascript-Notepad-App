@@ -59,7 +59,6 @@ return NoteElement
 }
 
 const sortNotes =(notes, sortBy) => {
-  console.log(sortBy)
   if (sortBy === 'byEdited') {
       return notes.sort((a, b) => {
           if (a.Updated > b.Updated) {
