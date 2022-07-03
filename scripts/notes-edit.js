@@ -4,6 +4,7 @@ const noteTitle = document.querySelector("#note-title")
 const noteBody = document.querySelector('#note-body')
 const deleteButton = document.querySelector('#delete-button')
 const date = document.querySelector("#last-updated")
+const saveButton = document.querySelector('#save-button')
 
 const noteId = location.hash.substring(1)
 let notes = getSavedNotes()
@@ -16,6 +17,12 @@ if (!note) {
 noteTitle.value = note.Title
 noteBody.value = note.Body
 date.textContent = lastUpdated (note)
+
+saveButton.addEventListener('click',(e) => {
+e.preventDefault()
+location.assign("./index/html")
+
+})
 
 
 
