@@ -113,7 +113,7 @@ notes = sortNotes(notes, filters.sortBy)
     else {
       
       const emptyMessage = document.createElement('p')
-    emptyMessage.textContent = "No notes found - you can create one to get started!"
+    emptyMessage.textContent = "No notes found"
     document.querySelector("#notes").appendChild(emptyMessage)
     emptyMessage.classList.add("empty-message")
   
