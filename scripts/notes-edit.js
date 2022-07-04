@@ -69,3 +69,6 @@ window.addEventListener('storage', (e) =>{
         date.textContent = lastUpdated (note)
     }
 })
+
+
+
