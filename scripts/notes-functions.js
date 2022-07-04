@@ -116,7 +116,8 @@ notes = sortNotes(notes, filters.sortBy)
     emptyMessage.textContent = "No notes found - you can create one to get started!"
     document.querySelector("#notes").appendChild(emptyMessage)
     emptyMessage.classList.add("empty-message")
-    emptyEL.classList.add("container")
+    emptyMessage.classList.add("list-item")
+    emptyEL.classLust.add("container")
   
   }
 
